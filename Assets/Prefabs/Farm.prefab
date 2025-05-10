@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7267406042374870815}
   - component: {fileID: 7060702268841334260}
   - component: {fileID: 8516670273286885922}
+  - component: {fileID: 1231255661505306872}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -136,3 +137,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu: {fileID: 0}
+  TypeOfResourse: food
+  count: 1
+  time: 5
+  level: 1
+  type: 0
+  timeVariants: 0500000004000000020000000100000000000000
+--- !u!114 &1231255661505306872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358345424088751374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0cfc3e23252254a910cffedb5a1c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainRenderer: {fileID: 1747218134592859209}
+  Size: {x: 1, y: 1}

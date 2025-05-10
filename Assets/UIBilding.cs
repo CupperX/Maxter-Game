@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -9,10 +10,13 @@ public class UIBilding:MonoBehaviour
     public string TypeOfResourse;
     public int count;
     public int time;
-    public int level;
+    public int level=1;
     public int type;
+    public List<int> timeVariants;
+    public int IndexInUpgradeList;
     void Start()
     {
+        time = timeVariants[0];
         Menu = GameObject.FindGameObjectWithTag("PanelForClick").GetComponent<FindAndTransform>();
         Debug.Log(Menu);
     }
@@ -31,10 +35,10 @@ public class UIBilding:MonoBehaviour
         switch (type) 
         {
             case 0:
-                level++;
+                Upgrade();
                 break;
             case 1:
-                DATA.coins += count;
+                GetResourse();
                 break;
         }
         print(level..DATA.coins);
@@ -52,6 +56,53 @@ public class UIBilding:MonoBehaviour
             
         }
         ReturnActivityCommand();
-        Menu.SetActiveButtons(true);
+        if (level == 5)
+        {
+            Menu.SetActiveButtons(false, true);
+        }
+        else
+        {
+            Menu.SetActiveButtons(true);
+        }
+    }
+    void Upgrade()
+    {
+        level++;
+        if (level == 5)
+        {
+            
+            StartCoroutine(AutomaticFarm());
+        }
+        else
+        {
+            time = timeVariants[level - 1];
+        }
+    }
+    void GetResourse()
+    {
+        switch (TypeOfResourse)
+        {
+            case "food":
+                DATA.food += count;
+                break;
+            case "coal":
+                DATA.coal += count;
+                break;
+            case "metal":
+                DATA.metal += count;
+                break;
+            case "brick":
+                DATA.bricks += count;
+                break;
+        }
+        print(DATA.food.ToString()+" "+DATA.coal.ToString()+ " " + DATA.metal.ToString()+ " " + DATA.bricks.ToString());
+    }
+    IEnumerator AutomaticFarm()
+    {
+        while (true) {
+            yield return new WaitForSeconds(1f);
+            GetResourse();
+        }
+        
     }
 }

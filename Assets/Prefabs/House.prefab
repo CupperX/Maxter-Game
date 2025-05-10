@@ -137,12 +137,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu: {fileID: 0}
-  TypeOfResourse: 
-  count: 5
+  TypeOfResourse: coal
+  count: 1
   time: 5
-  level: 0
+  level: 1
   type: 0
-  newMesh: {fileID: 0}
+  timeVariants: 0500000004000000020000000100000000000000
+  IndexInUpgradeList: 1
 --- !u!114 &8928806907318919308
 MonoBehaviour:
   m_ObjectHideFlags: 0
